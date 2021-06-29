@@ -36,10 +36,6 @@ console.log(lat)
         street: "",
         number: "",
         zipcode: "",
-        geolocation: {
-          lat: lat,
-          long: long
-        },
       },
       phone: "",
     },
@@ -60,8 +56,8 @@ console.log(lat)
             number: formik.values.address.number,
             zipcode: formik.values.address.zipcode,
             geolocation: {
-              lat: formik.values.address.geolocation.lat,
-              long: formik.values.address.geolocation.long
+              lat: lat,
+              long: long
             },
           },
           phone: formik.values.phone,
@@ -69,10 +65,11 @@ console.log(lat)
       })
         .then((res) => res.json())
         .then((json) => console.log(json));
+        
     },
   });
 
-  console.log("form values", formik.values);
+  console.log(formik.values);
 
   return (
     <FormikProvider value={formik}>
